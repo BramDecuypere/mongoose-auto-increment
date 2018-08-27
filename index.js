@@ -18,7 +18,8 @@ exports.initialize = function (connection) {
       });
 
       // Create a unique index using the "field" and "model" fields.
-      counterSchema.index({ field: 1, model: 1 }, { unique: false, required: true, index: -1 });
+      // Remove the index, in current project we don't need to have an index here and we want duplicate numbers
+      // counterSchema.index({ field: 1, model: 1 }, { unique: false, required: true, index: -1 });
 
       // Create model using new schema.
       IdentityCounter = connection.model('IdentityCounter', counterSchema);
